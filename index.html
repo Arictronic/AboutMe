@@ -297,10 +297,22 @@
         line-height: 1.7;
       }
 
+      .job-search-status {
+        margin: 10px 0 16px;
+        color: var(--text-color);
+        font-weight: 600;
+        line-height: 1.5;
+      }
       .section-subtitle {
-        color: white;
-        margin: 10px 0 12px;
-        font-size: 1.1rem;
+        color: #8fd2ff;
+        margin: 28px 0 16px;
+        padding: 12px 16px;
+        border-left: 4px solid var(--highlight-color);
+        border-radius: 0 8px 8px 0;
+        background: rgba(0, 153, 255, 0.1);
+        font-size: 1.15rem;
+        font-weight: 700;
+        line-height: 1.4;
       }
 
       footer {
@@ -401,61 +413,36 @@
       }
 
       @media print {
-        body {
-          background-color: white;
-          color: black;
-        }
-
-        .container {
-          box-shadow: none;
-          max-width: 100%;
-          background-color: white;
-        }
-
-        section {
-          background-color: white;
-          box-shadow: none;
-        }
-
-        .skill-category {
-          background-color: white;
-          border-left: 1px solid #333;
-        }
-
-        h1,
-        h2,
-        .edu-title,
-        .job-position,
-        .project-title,
-        .course-title {
-          color: black;
-        }
-
-        .job-title,
-        .institution,
-        .company {
-          color: #333;
-        }
-
-        a {
-          color: black;
-          text-decoration: none;
-        }
-
-        .contact-item {
-          background-color: white;
-          padding: 0;
-        }
-
-        .date {
-          background-color: white;
-          color: #666;
-          padding: 0;
-        }
-
-        footer {
-          display: none;
-        }
+        @page { size: A4; margin: 14mm; }
+        body { font-family: Arial, sans-serif; font-size: 10pt; line-height: 1.4; background: white; color: #18202b; }
+        .container { max-width: none; margin: 0; padding: 0; background: white; box-shadow: none; }
+        header { padding: 0 0 14px; gap: 18px; grid-template-columns: auto 1fr; }
+        .profile-img { width: 100px; height: 100px; box-shadow: none; }
+        h1 { font-size: 23pt; color: #152a40; }
+        .job-title { font-size: 11pt; color: #24577c; letter-spacing: 0; margin-bottom: 6px; }
+        .job-search-status { color: #18202b; margin: 6px 0; }
+        .contact-info { gap: 6px 14px; margin: 8px 0 0; }
+        .contact-item { background: none; padding: 0; font-size: 9pt; }
+        section { margin: 18px 0; padding: 0; background: white; box-shadow: none; }
+        h2 { display: block; color: #152a40; font-size: 16pt; margin: 0 0 12px; break-after: avoid; }
+        h2:after { display: none; }
+        h3, .edu-title, .job-position, .project-title, .course-title { color: #18202b; }
+        .institution, .company, .date { color: #425466; }
+        .date { background: none; padding: 0; }
+        .skills-container { display: block; columns: 2; column-gap: 18px; margin-top: 0; }
+        .skill-category { display: inline-block; width: 100%; box-sizing: border-box; margin: 0 0 12px; padding: 10px 12px; background: #f4f7fa; border: 1px solid #d8e2eb; border-left: 3px solid #327aad; break-inside: avoid; }
+        .skill-category h3 { color: #152a40; font-size: 11pt; margin-bottom: 8px; }
+        .skill-list { margin-top: 0; }
+        .skill-list li { font-size: 9pt; padding-left: 13px; margin-bottom: 5px; }
+        .tag { color: #243b53; background: #eaf0f5; border: 1px solid #ccd8e3; font-size: 8pt; padding: 1px 5px; }
+        .section-subtitle { color: #17486c; background: #edf4fa; margin: 18px 0 12px; padding: 8px 12px; font-size: 12pt; break-after: avoid; }
+        .project-item, .education-item, .course-item, .experience-item { break-inside: avoid; margin-bottom: 12px; padding-bottom: 10px; }
+        .description, .responsibilities { margin-top: 5px; line-height: 1.45; }
+        a { color: #24577c; text-decoration: underline; }
+        .collapsible { color: #152a40; background: none; font-size: 16pt; font-weight: bold; padding: 0; margin: 18px 0 12px; box-shadow: none; break-after: avoid; }
+        .collapsible:after { display: none; }
+        .content { max-height: none !important; overflow: visible; padding: 0; background: white; border: 0; }
+        footer { display: none; }
       }
     </style>
   </head>
@@ -469,7 +456,8 @@
         />
         <div class="header-content">
           <h1>Кулаков Артём Олегович</h1>
-          <div class="job-title">Программист | Разработка ПО</div>
+          <div class="job-title">Python-разработчик · Backend и разработка приложений</div>
+          <p class="job-search-status">Открыт к предложениям о работе в IT</p>
           <div class="contact-info">
             <div class="contact-item" onclick="window.location.href='tel:+79223151235'">
               <i class="fas fa-phone"></i>
@@ -498,12 +486,12 @@
       <section class="about-me">
         <h2>О себе</h2>
         <p>
-          Амбициозный молодой специалист, студент УрФУ (ИРИТ‑РТФ) по специальности
-          «Алгоритмы искусственного интеллекта» (поступление в 2025 году). Выпускник
-          ТюмКЭУП по специальности «Программист». Имею опыт разработки ПО для ПК и
-          мобильных устройств. Активно изучаю веб‑разработку, backend и направления
-          искусственного интеллекта. Слежу за трендами в мире AI, изучаю архитектуры
-          нейросетей и разработку агентных систем.
+          Разработчик с профильным средним профессиональным образованием и опытом выполнения заказных и личных проектов.
+          Основной язык — Python. Разрабатываю backend-сервисы, desktop-приложения и веб-интерфейсы,
+          работаю с базами данных и внешними API. Есть опыт разработки программного обеспечения
+          для физических терминалов и интеграции языковых моделей. Завершил курсы по backend-разработке
+          и AI-агентам. Рассматриваю предложения о работе в IT, чтобы развиваться в команде
+          и участвовать в создании практических продуктов.
         </p>
       </section>
 
@@ -518,6 +506,10 @@
               <li>C++ <span class="tag tag-beginner">Начальный уровень</span></li>
               <li>JavaScript <span class="tag tag-beginner">Начальный уровень</span></li>
               <li>Kotlin <span class="tag tag-beginner">Начальный уровень</span></li>
+              <li>TypeScript <span class="tag tag-beginner">Начальный уровень</span></li>
+              <li>Rust <span class="tag tag-beginner">Начальный уровень</span></li>
+              <li>Swift <span class="tag tag-beginner">Начальный уровень</span></li>
+              <li>Go <span class="tag tag-beginner">Начальный уровень</span></li>
             </ul>
           </div>
           <div class="skill-category">
@@ -526,11 +518,11 @@
               <li>HTML <span class="tag">Знаю</span></li>
               <li>CSS <span class="tag">Знаю</span></li>
               <li>React + Vite <span class="tag tag-learning">Изучаю</span></li>
-              <li>Django <span class="tag tag-learning">Изучаю</span></li>
-              <li>FastAPI <span class="tag tag-learning">Изучаю</span></li>
-              <li>REST API <span class="tag tag-learning">Изучаю</span></li>
+              <li>Django <span class="tag tag-familiar">Опыт применения в проектах</span></li>
+              <li>FastAPI <span class="tag tag-familiar">Опыт применения в проектах</span></li>
+              <li>REST API <span class="tag tag-familiar">Опыт применения в проектах</span></li>
               <li>Uvicorn <span class="tag tag-learning">Изучаю</span></li>
-              <li>.NET Framework</li>
+              <li>.NET Framework <span class="tag tag-mid">Средний уровень</span></li>
               <li>Nest <span class="tag tag-familiar">Знаком</span></li>
               <li>Next <span class="tag tag-familiar">Знаком</span></li>
             </ul>
@@ -538,22 +530,85 @@
           <div class="skill-category">
             <h3>Инструменты и библиотеки</h3>
             <ul class="skill-list">
-              <li>Git <span class="tag">Знаю</span></li>
-              <li>Docker <span class="tag tag-learning">Изучаю</span></li>
-              <li>pytest-asyncio <span class="tag tag-learning">Изучаю</span></li>
-              <li>pandas <span class="tag tag-learning">Изучаю</span></li>
-              <li>numpy <span class="tag tag-learning">Изучаю</span></li>
-              <li>polars <span class="tag tag-learning">Изучаю</span></li>
-              <li>selenium <span class="tag tag-learning">Изучаю</span></li>
-              <li>bs4 <span class="tag tag-learning">Изучаю</span></li>
+              <li>Git <span class="tag tag-familiar">Знаком</span></li>
+              <li>Docker <span class="tag tag-familiar">Знаком</span></li>
+              <li>pytest-asyncio <span class="tag tag-familiar">Знаком</span></li>
+              <li>pandas <span class="tag tag-familiar">Знаком</span></li>
+              <li>numpy <span class="tag tag-familiar">Знаком</span></li>
+              <li>polars <span class="tag tag-familiar">Знаком</span></li>
+              <li>selenium <span class="tag tag-familiar">Знаком</span></li>
+              <li>bs4 <span class="tag tag-familiar">Знаком</span></li>
               <li>Unity <span class="tag tag-beginner">Начальный уровень</span></li>
               <li>Prisma <span class="tag tag-familiar">Знаком</span></li>
+            </ul>
+          </div>
+          <div class="skill-category">
+            <h3>Разработка интерфейсов и приложений</h3>
+            <ul class="skill-list">
+              <li>PyQt5 <span class="tag tag-familiar">Знаком</span></li>
+              <li>PySide6, QML <span class="tag tag-familiar">Знаком</span></li>
+              <li>Windows Forms <span class="tag tag-familiar">Знаком</span></li>
+              <li>Android Studio, разработка Android-приложений <span class="tag tag-familiar">Знаком</span></li>
+              <li>Разработка приложений для macOS <span class="tag tag-familiar">Знаком</span></li>
+              <li>Tailwind CSS <span class="tag tag-familiar">Знаком</span></li>
+              <li>WordPress: собственные темы и плагины <span class="tag tag-familiar">Знаком</span></li>
+              <li>PWA, Service Worker, офлайн-режим <span class="tag tag-familiar">Знаком</span></li>
+              <li>Адаптивная вёрстка и реализация интерфейсов по макету <span class="tag tag-familiar">Знаком</span></li>
+            </ul>
+          </div>
+          <div class="skill-category">
+            <h3>Backend и интеграции</h3>
+            <ul class="skill-list">
+              <li>Django REST Framework <span class="tag tag-familiar">Знаком</span></li>
+              <li>Pydantic <span class="tag tag-familiar">Знаком</span></li>
+              <li>JWT-аутентификация <span class="tag tag-familiar">Знаком</span></li>
+              <li>HTTPX, интеграция внешних API <span class="tag tag-familiar">Знаком</span></li>
+              <li>Интеграция языковых моделей, OpenAI-совместимый API <span class="tag tag-familiar">Знаком</span></li>
+              <li>Потоковая передача ответов, SSE <span class="tag tag-familiar">Знаком</span></li>
+              <li>WebSocket / WSS <span class="tag tag-familiar">Знаком</span></li>
+              <li>TCP/UDP, клиент-серверное взаимодействие <span class="tag tag-familiar">Знаком</span></li>
+              <li>Celery, Redis <span class="tag tag-familiar">Знаком</span></li>
+              <li>RabbitMQ <span class="tag tag-familiar">Знаком</span></li>
+              <li>S3-совместимые хранилища <span class="tag tag-familiar">Знаком</span></li>
+              <li>Микросервисная архитектура <span class="tag tag-familiar">Знаком</span></li>
+              <li>Надёжная доставка событий, подтверждения и повторная отправка <span class="tag tag-familiar">Знаком</span></li>
+              <li>Идемпотентность операций <span class="tag tag-familiar">Знаком</span></li>
+              <li>Парсинг и сбор данных через API <span class="tag tag-familiar">Знаком</span></li>
+            </ul>
+          </div>
+          <div class="skill-category">
+            <h3>Развёртывание и качество</h3>
+            <ul class="skill-list">
+              <li>Linux / Debian, systemd <span class="tag tag-familiar">Знаком</span></li>
+              <li>PowerShell: автоматизация запуска и настройки <span class="tag tag-familiar">Знаком</span></li>
+              <li>Мониторинг, метрики и трассировка <span class="tag tag-familiar">Знаком</span></li>
+              <li>Playwright <span class="tag tag-familiar">Знаком</span></li>
+            </ul>
+          </div>
+          <div class="skill-category">
+            <h3>Практические компетенции</h3>
+            <ul class="skill-list">
+              <li>Заказная разработка и анализ требований <span class="tag tag-familiar">Знаком</span></li>
+              <li>Разработка клиент-серверных приложений <span class="tag tag-familiar">Знаком</span></li>
+              <li>Разработка ПО для физических терминалов <span class="tag tag-familiar">Знаком</span></li>
+              <li>Интеграция оборудования через serial-порты <span class="tag tag-familiar">Знаком</span></li>
+              <li>Pygame: разработка 2D-игр <span class="tag tag-familiar">Знаком</span></li>
             </ul>
           </div>
           <div class="skill-category">
             <h3>Базы данных</h3>
             <ul class="skill-list">
               <li>Знаком с основами SQL</li>
+              <li>PostgreSQL, SQLite <span class="tag tag-familiar">Знаком</span></li>
+              <li>MariaDB <span class="tag tag-familiar">Знаком</span></li>
+              <li>SQLAlchemy, Alembic: ORM и миграции БД <span class="tag tag-familiar">Знаком</span></li>
+            </ul>
+          </div>
+          <div class="skill-category">
+            <h3>Локальные модели и агентные системы</h3>
+            <ul class="skill-list">
+              <li>Локальные модели и агентные сети <span class="tag tag-familiar">Знаком</span></li>
+              <li>Развёртывание и настройка OpenClaw</li>
             </ul>
           </div>
           <div class="skill-category">
@@ -568,14 +623,16 @@
               <li>Сбер Гига Чат (текст + код)</li>
               <li>Nana Banana (фото)</li>
               <li>Midjourney (фото)</li>
-              <li>Изучаю локальные модели и агентные сети</li>
+              <li>RAG, Qdrant, векторный поиск <span class="tag tag-familiar">Знаком</span></li>
             </ul>
           </div>
           <div class="skill-category">
-            <h3>Участие в олимпиадах</h3>
+            <h3>Участие в олимпиадах и хакатонах</h3>
             <ul class="skill-list">
               <li>WorldSkills «Программные решения для бизнеса»</li>
               <li>QCTF «Соревнования по компьютерной безопасности»</li>
+              <li>«АтомикХак 3.0» — фестиваль студенческих хакатонов Росатома</li>
+              <li>PostCode Challenge — хакатон Почтатеха и Университета Иннополис</li>
             </ul>
           </div>
           <div class="skill-category">
@@ -597,18 +654,18 @@
           <div class="edu-title">
             ФГАОУ ВО «Уральский федеральный университет имени первого Президента России Б.Н. Ельцина»
           </div>
-          <div class="institution">УрФУ, ИРИТ‑РТФ | Специальность: «Алгоритмы искусственного интеллекта»</div>
-          <div class="date">2025 — настоящее время</div>
+          <div class="institution">УрФУ, ИРИТ‑РТФ | Образовательная программа: «Алгоритмы искусственного интеллекта»</div>
+          <div class="date">2025 — 2026 · Высшее образование не завершено</div>
           <div class="description">
-            В процессе обучения изучаю: Python (pandas, numpy, bs4, selenium, polars),
+            Прекратил обучение на втором курсе по личным причинам. В ходе обучения изучал Python (pandas, numpy, bs4, selenium, polars),
             веб‑разработку (React + Vite, Django), REST API, FastAPI, Uvicorn, Docker,
             pytest-asyncio, Kotlin для Android.
           </div>
         </div>
         <div class="education-item">
           <div class="edu-title">ЧПОУ ТОСПО «ТюмКЭУП» (Тюменский колледж экономики, управления и права)</div>
-          <div class="institution">Специальность: Программист</div>
-          <div class="date">2020 — 2023</div>
+          <div class="institution">Среднее профессиональное образование · Квалификация: программист</div>
+          <div class="date">2020 — 2023 · Обучение завершено</div>
           <div class="description">
             Участие в WorldSkills «Программные решения для бизнеса». Курсы по C# при Точке Кипения, Тюмень.
             Прохождение производственной практики в компании ООО «Алгоритм». Проекты на PyQt5 + Windows Forms, .NET.
@@ -628,16 +685,51 @@
         <h2>Курсы и повышение квалификации</h2>
         <div class="course-item">
           <div class="course-title">Яндекс: «Backend‑разработчик»</div>
-          <div class="date">В процессе</div>
+          <div class="date">Завершён</div>
         </div>
         <div class="course-item">
           <div class="course-title">Сбер: «AI — агенты»</div>
-          <div class="date">В процессе</div>
+          <div class="date">Завершён</div>
         </div>
       </section>
 
       <section class="projects">
         <h2>Проекты</h2>
+
+        <div class="section-subtitle">Заказные проекты</div>
+        <div class="project-item">
+          <div class="project-title">
+            Сайт для лизинга автомобилей
+            <span class="tag tag-progress">Заморожен</span>
+          </div>
+          <div class="description">Разработка frontend и backend сайта для лизинга автомобилей, документооборота и финансовых модулей. Разработка серверной части сайта и программного обеспечения физического терминала приёма и выдачи наличных, включая его серверную часть и взаимодействие с сайтом. Проект заморожен после завершения сотрудничества с заказчиком.</div>
+        </div>
+        <div class="project-item">
+          <div class="project-title">
+            «Спутник Точности» — редизайн корпоративного сайта на WordPress
+            <span class="tag tag-progress">В разработке</span>
+          </div>
+          <div class="description">
+            Заказная разработка новой версии сайта производителя оборудования для станков с ЧПУ.
+            Аудит действующего сайта, проработка структуры и нового дизайна по фирменным материалам,
+            адаптивная вёрстка и разработка собственной темы и плагинов WordPress.
+            Каталог продукции с характеристиками и документацией, электронный PDF-каталог и формы с сохранением заявок.
+            Подготовлена локальная версия на PHP и MariaDB; продолжается доработка перед запуском.
+            <a href="https://sputniksensor.ru/" target="_blank" rel="noopener noreferrer">Действующий сайт компании</a>.
+          </div>
+        </div>
+        <div class="project-item">
+          <div class="project-title">
+            Shauldale — генератор расписания для фитнес-студии
+            <span class="tag tag-status">Готово</span>
+          </div>
+          <div class="description">
+            Заказная разработка веб-приложения для фитнес-студии Shauldale: создание и редактирование расписания занятий с указанием тренеров и залов.
+            Экспорт расписания и дневных постеров в PNG/JPEG, настройка тем, логотипов и водяных знаков.
+            Автосохранение, импорт и экспорт JSON, история изменений. JavaScript, HTML/CSS, PWA и офлайн-режим.
+            <a href="https://github.com/Arictronic/webSite" target="_blank" rel="noopener noreferrer">Код на GitHub</a>.
+          </div>
+        </div>
 
         <div class="section-subtitle">Учебные проекты</div>
         <div class="project-item">
@@ -650,41 +742,45 @@
         <div class="project-item">
           <div class="project-title">
             Парсер сайтов с научными статьями и патентами
-            <span class="tag tag-progress">В работе</span>
+            <span class="tag tag-status">Готово</span>
           </div>
           <div class="description">Анализ информации.</div>
         </div>
-        <div class="project-item">
-          <div class="project-title">
-            Сайт для лизинга автомобилей
-            <span class="tag tag-progress">В работе</span>
-          </div>
-          <div class="description">Документооборот и финансовые модули.</div>
-        </div>
+
 
         <div class="section-subtitle">Личные проекты</div>
         <div class="project-item">
           <div class="project-title">
-            Агентная сеть OpenClaw
-            <span class="tag tag-progress">Настройка</span>
+            LocalCall — приложение для голосовых звонков
+            <span class="tag tag-status">Готово</span>
           </div>
-          <div class="description">Разработка и настройка агентной сети.</div>
+          <div class="description">
+            Android-приложение, desktop-клиент и серверная часть для голосовых звонков в локальной сети и через интернет с подключением к серверу. Автоматическое обнаружение устройств в локальной сети, управление микрофоном и выбор аудиовыхода, включая Bluetooth-гарнитуры. Kotlin, Python, PyQt5, TCP/UDP.
+            <a href="https://github.com/Arictronic/LocalCall" target="_blank" rel="noopener noreferrer">Код на GitHub</a>.
+          </div>
+        </div>
+
+        <div class="project-item">
+          <div class="project-title">
+            Агентная сеть OpenClaw
+            <span class="tag tag-status">Готово</span>
+          </div>
+          <div class="description">Изучил OpenClaw. Умею разворачивать и настраивать агентную сеть.</div>
         </div>
         <div class="project-item">
           <div class="project-title">
-            Собственный провайдер для нейронных сетей (аналог OpenRouter)
-            <span class="tag tag-local">Локальная сеть</span>
+            InfinitiAgent — AI-клиент и провайдер языковых моделей
+            <span class="tag tag-progress">Работает, развивается</span>
           </div>
           <div class="description">
-            Сейчас работает в локальной сети. В дальнейшем: обработка инструментов, авто‑генератор
-            навыков под задачу и потоковое решение.
+            Приложение для Windows на Python и PyQt5 для работы с DeepSeek и Qwen. История диалогов, загрузка файлов и изображений, поддержка нескольких аккаунтов. OpenAI-совместимый HTTP API для интеграции с OpenClaw и другими клиентами, потоковые ответы и учёт использования токенов в SQLite. Работает в локальной сети и продолжает развиваться: обработка инструментов и автоматическая генерация навыков под задачу.
           </div>
         </div>
 
         <div class="section-subtitle">Колледжные проекты</div>
         <div class="project-item">
-          <div class="project-title">Desktop‑приложения</div>
-          <div class="description">Разработка на PyQt5 + Windows Forms, .NET.</div>
+          <div class="project-title">Desktop- и Android-приложения</div>
+          <div class="description">Разработка desktop-приложений на PyQt5, Windows Forms и .NET, а также создание приложения для Android в Android Studio.</div>
         </div>
       </section>
 
